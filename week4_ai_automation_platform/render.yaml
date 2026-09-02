@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: ai-business-assistant
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: ./week4_ai_automation_platform
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: AUTO_SEND_RESPONSES
+        value: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: EMAIL_USERNAME
+        sync: false
+      - key: EMAIL_PASSWORD
+        sync: false
+      - key: IMAP_HOST
+        value: imap.gmail.com
+      - key: SMTP_HOST
+        value: smtp.gmail.com
+      - key: SMTP_PORT
+        value: 587
+      - key: GOOGLE_CREDENTIALS_FILE
+        value: /etc/secrets/credentials.json
+      - key: GOOGLE_TOKEN_FILE
+        value: /var/data/token.json
+      - key: DB_PATH
+        value: /var/data/assistant.db
