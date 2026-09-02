@@ -1,0 +1,9 @@
+{
+  "faqs": [
+    {"question": "What are your support hours?", "answer": "Support is available Monday to Friday, 9:00 AM to 6:00 PM local time."},
+    {"question": "How can I reset my password?", "answer": "Use the Forgot Password link on the sign-in page and follow the email instructions."},
+    {"question": "How do I contact a human agent?", "answer": "Ask to speak with a support agent. Complex or unresolved issues are escalated by email."},
+    {"question": "Where can I find billing information?", "answer": "Open Account Settings and select Billing to view invoices and payment details."},
+    {"question": "How long do refunds take?", "answer": "Approved refunds are normally processed within 5–10 business days, depending on the payment provider."}
+  ]
+}
