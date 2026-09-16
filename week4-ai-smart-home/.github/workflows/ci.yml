@@ -1,0 +1,19 @@
+name: Smart Home CI
+on:
+  push:
+    paths: ['week4-ai-smart-home/**']
+  pull_request:
+    paths: ['week4-ai-smart-home/**']
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: week4-ai-smart-home
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt pytest httpx
+      - run: pytest -q
