@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI Smart Home Dashboard</title>
+  <style>
+    body{font-family:system-ui,sans-serif;max-width:1100px;margin:40px auto;padding:0 20px;background:#f5f7fb;color:#172033}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}.card{background:white;border-radius:14px;padding:20px;box-shadow:0 2px 12px #0001}.value{font-size:2rem;font-weight:700;margin-top:8px}.ok{font-weight:600}
+  </style>
+</head>
+<body>
+  <h1>🏠 AI Smart Home</h1><p>Real-time edge AI telemetry and energy optimization.</p>
+  <div class="grid">
+    <div class="card">🌡️ Temperature<div id="temperature" class="value">--</div></div>
+    <div class="card">🚶 Motion<div id="motion" class="value">--</div></div>
+    <div class="card">💡 Light<div id="light" class="value">--</div></div>
+    <div class="card">🔊 Sound<div id="sound" class="value">--</div></div>
+    <div class="card">🤖 Occupancy<div id="occupied" class="value">--</div></div>
+    <div class="card">🕒 Updated<div id="updated" class="value" style="font-size:1rem">--</div></div>
+  </div>
+  <script>
+    async function refresh(){
+      const r=await fetch('/api/status'); const d=await r.json();
+      for(const k of ['temperature','motion','light','sound','occupied','updated_at']){
+        const el=document.getElementById(k==='updated_at'?'updated':k); if(el) el.textContent=d[k] ?? '--';
+      }
+    }
+    refresh(); setInterval(refresh,3000);
+  </script>
+</body>
+</html>
