@@ -1,0 +1,11 @@
+.env
+*.db
+*.sqlite
+*.sqlite3
+*.joblib
+__pycache__/
+.pytest_cache/
+.venv/
+certs/*.key
+certs/*.crt
+mosquitto/passwd
